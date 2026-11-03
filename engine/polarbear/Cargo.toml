@@ -1,0 +1,24 @@
+# Copyright (c) 2026 Divith123. Licensed under the MIT License.
+#
+# PolarBear's own engine crate — zero dependencies by design: the seam is
+# self-contained while the typesetting core (ownership-ladder rung 5) is
+# built clean-room.
+
+[package]
+name = "polarbear_engine"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+description = "PolarBear's typesetting-engine seam: safe API, engine gate, C ABI (core rung pending)."
+readme = "README.md"
+
+[lib]
+crate-type = ["rlib", "staticlib", "cdylib"]
+
+[lints.rust]
+missing_docs = "deny"
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.clippy]
+undocumented_unsafe_blocks = "deny"

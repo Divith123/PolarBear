@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.xcarchive
+.swiftpm/
+.build/
+
+# Installer and release output (Scripts/make_dmg.py, Scripts/build_release.sh)
+dist/
+*.dmg
+
+# Rust (engine/polarbear)
+target/
+
+# Editors
+.vscode/
+.idea/

@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Source conventions
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Scripts/lint.sh
+        run: bash Scripts/lint.sh
+
+  engine:
+    name: PolarBear Engine (Rust)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: engine/polarbear
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Build
+        run: cargo build --release --locked
+      - name: Clippy
+        run: cargo clippy --release --locked
+
+  # The app itself needs the macOS 27 SDK (Xcode 27), which GitHub's hosted runners do not have yet,
+  # so it is built locally: see CONTRIBUTING.md.

@@ -1,0 +1,45 @@
+name: Bug report
+description: Something does not work as it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a project …
+        2. …
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Project type
+      options: [TeX, Markdown, Not related to a project]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PolarBear version and macOS version
+      placeholder: "PolarBear 1.0 (main), macOS 27.2"
+    validations:
+      required: true
+  - type: input
+    id: engine
+    attributes:
+      label: TeX engine (Settings → Compile)
+      placeholder: Tectonic 0.17, MacTeX 2026, …
+  - type: textarea
+    id: log
+    attributes:
+      label: Compile log or console output
+      description: Paste it if it is short, or attach it. Remove anything private.
+      render: text
